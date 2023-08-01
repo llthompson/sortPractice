@@ -43,12 +43,10 @@ const atxIdx = (numbers) => {
 
 }
 
-console.log('What is this', atxIdx(numArr));
+// console.log('What is this doing', atxIdx(numArr));
+// console.log('one at a time', numArr[atxIdx(numArr)]);
 
-console.log('one at a time', numArr[atxIdx(numArr)]);
-
-
-console.log(`index: ${atxIdx(numArr)}, value: ${stringsToNumbs[atxIdx(stringsToNumbs)]}`);
+console.log(`Index number: ${atxIdx(numArr)} plus the value: ${numArr[atxIdx(numArr)]} equals 512!`);
 
 const weather = [
     {
@@ -121,12 +119,28 @@ const weather = [
     },
 ]
 
-//using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-// const weatherStates =
-//     console.log(weatherStates)
+// using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
+const weatherStates = (weather) => {
+    const uniqueWeather = weather.reduce((acc, curr) => {
+        if (!acc.includes(curr.weather_state_name)) {
+            acc.push(curr.weather_state_name);
+        }
+        return acc;
+    }, []);
+    return uniqueWeather;
+};
 
-//find the id of the object in weather that has a min_temp of 15.915
 
-// const idealTemp =
-//     console.log(idealTemp)
-//         ```
+console.log('Some weather:', weatherStates(weather))
+
+// find the id of the object in weather that has a min_temp of 15.915
+
+
+const targetMinTemp = 15.915;
+
+const idealTempObject = weather.find((item) => item.min_temp === targetMinTemp);
+
+const idealTemp = idealTempObject ? idealTempObject.id : null;
+
+console.log('ID of the object:', idealTemp);
+
