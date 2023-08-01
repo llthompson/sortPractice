@@ -33,14 +33,6 @@ const atxIdx = (numbers) => {
             break 
        }
     } return austin;
-
-    // numbers.forEach((number, i) => {
-    //     if (number + i === 512) {
-    //          austin = i;
-             
-    //     }
-    // })
-
 }
 
 // console.log('What is this doing', atxIdx(numArr));
